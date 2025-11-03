@@ -1,28 +1,38 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import WorkAndContact from './components/WorkAndContact';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="scroll-smooth bg-slate-950 selection:bg-fuchsia-500/30 selection:text-white">
+      {/* Top navigation */}
+      <header className="fixed inset-x-0 top-0 z-50 mx-auto w-full max-w-7xl px-6 pt-6">
+        <div className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-xl">
+          <a href="#home" className="text-sm font-semibold tracking-wide text-white/90">IAK</a>
+          <nav className="hidden gap-6 text-sm text-white/80 md:flex">
+            <a href="#about" className="hover:text-white">About</a>
+            <a href="#skills" className="hover:text-white">Skills</a>
+            <a href="#work" className="hover:text-white">Projects</a>
+            <a href="#contact" className="hover:text-white">Contact</a>
+          </nav>
+          <a href="#contact" className="rounded-xl bg-white/10 px-3 py-1.5 text-sm text-white backdrop-blur-md hover:bg-white/20">Let’s talk</a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <About />
+        <Skills />
+        <WorkAndContact />
+      </main>
+
+      <footer className="border-t border-white/10 bg-slate-950/60 py-8 text-center text-white/60">
+        © {new Date().getFullYear()} Ivan Admaja Kuncoro. All rights reserved.
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
